@@ -1,0 +1,13 @@
+Netlify form setup notes
+
+What was fixed:
+- Quote form posts with method="POST" and data-netlify="true".
+- Hidden form-name value is quote-request.
+- Form action now goes to /thank-you/ so Netlify records the submission first, then shows thank-you.html.
+- Redirect rules include both /thank-you and /thank-you/.
+
+After deploying:
+1. Open Netlify > Site > Forms and confirm quote-request appears after a fresh deploy.
+2. Submit one test quote from the live Netlify/custom domain, not from your local computer.
+3. To email the client: Netlify > Site configuration > Forms > Form notifications > Add notification > Email notification.
+4. Choose form quote-request and enter the client email address.
