@@ -1,5 +1,0 @@
-Netlify form name: quote-request
-
-After deploying, submit one test quote on the live site.
-Then open Netlify > Site configuration > Forms > Form notifications > Add email notification.
-Add the client email address to receive quote requests.
