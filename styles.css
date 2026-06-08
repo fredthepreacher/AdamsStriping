@@ -199,11 +199,11 @@ a    { text-decoration: none; color: inherit; }
 
 /* ── ABOUT — logo no box ── */
 .info-card {
-  background: var(--black4);
-  border: 1px solid rgba(255,196,0,0.12);
+  background: transparent;
+  border: none;
   border-radius: var(--radius);
   padding: 32px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  box-shadow: none;
 }
 /* Logo inside about card — transparent, blends with dark bg */
 .info-card img {
