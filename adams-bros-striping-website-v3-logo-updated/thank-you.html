@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Thank You | Adams Bros Striping</title>
+<meta content="noindex" name="robots"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#F5C400;--gold2:#FFD740;--red:#C0001A;--dark:#080808;--d3:#141414;--d4:#1c1c1c;--white:#fff;--off:#ddd8cc}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,0.022) 1px,transparent 0);background-size:28px 28px}
+.ty-card{background:var(--d3);border:1px solid rgba(245,196,0,0.15);border-radius:24px;max-width:600px;width:100%;padding:56px 48px;text-align:center;position:relative;overflow:hidden;animation:fadeUp .8s .2s both}
+.ty-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold) 35%,var(--red) 65%,transparent)}
+.ty-logo-pill{display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border:1px solid rgba(245,196,0,0.1);border-radius:20px;padding:14px 28px;margin-bottom:32px}
+.ty-logo-pill img{height:64px;width:auto;filter:drop-shadow(0 0 20px rgba(245,196,0,0.2));mix-blend-mode:screen}
+.ty-check{width:72px;height:72px;border-radius:50%;background:rgba(245,196,0,0.08);border:2px solid rgba(245,196,0,0.4);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 28px;animation:popIn .5s .6s both}
+.ty-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3rem);letter-spacing:.02em;line-height:1;margin-bottom:8px}
+.ty-title em{font-style:normal;color:var(--gold)}
+.ty-divider{width:48px;height:2px;background:linear-gradient(90deg,var(--red),var(--gold));margin:20px auto}
+.ty-sub{font-size:.95rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.75;max-width:400px;margin:0 auto 32px}
+.ty-contacts{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
+.ty-ci{display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.ty-ci a{font-size:.9rem;font-weight:500;color:var(--gold);transition:color .2s}
+.ty-ci a:hover{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--dark);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;border-radius:100px;transition:all .25s;box-shadow:0 6px 24px rgba(245,196,0,0.25)}
+.btn:hover{background:var(--gold2);transform:translateY(-2px)}
+.ty-fine{margin-top:24px;font-size:.68rem;color:rgba(255,255,255,0.18);letter-spacing:.12em;text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes popIn{from{transform:scale(0.4);opacity:0}to{transform:scale(1);opacity:1}}
+</style>
+</head>
+<body>
+<div class="ty-card">
+<div class="ty-logo-pill"><img alt="Adams Bros Striping" src="assets/adams-bros-logo.png"/></div>
+<div class="ty-check">✓</div>
+<h1 class="ty-title">Thank You for<br/><em>Reaching Out!</em></h1>
+<div class="ty-divider"></div>
+<p class="ty-sub">We've received your quote request and will get back to you within <strong style="color:var(--white)">24 hours</strong>. Andrew or Bradley will be in touch soon to discuss your project.</p>
+<div class="ty-contacts">
+<div class="ty-ci"><span>📞</span><a href="tel:4235192204">423-519-2204</a><span style="color:rgba(255,255,255,0.2)">|</span><a href="tel:4233685751">423-368-5751</a></div>
+<div class="ty-ci"><span>✉️</span><a href="mailto:adamsbrosstriping@gmail.com">adamsbrosstriping@gmail.com</a></div>
+</div>
+<a class="btn" href="index.html">← Back to Home</a>
+<p class="ty-fine">Locally Owned · Insured · ADA Compliant</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
