@@ -1,9 +1,9 @@
 /* ============================================================
    ADAMS BROS STRIPING — styles.css  (v6 — enhanced)
-   Fonts: Montserrat (display) + Inter (body)
+   Fonts: Barlow Condensed (display) + Inter (body)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ── Variables ── */
 :root {
@@ -63,7 +63,7 @@ a    { text-decoration: none; color: inherit; }
   padding-left: 160px;
 }
 .nav a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700; font-size: 1rem;
   text-transform: uppercase; letter-spacing: 0.045em;
   color: rgba(255,255,255,0.75);
@@ -125,24 +125,24 @@ a    { text-decoration: none; color: inherit; }
   animation: heroFade 0.9s 0.1s both;
 }
 .hero h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900; text-transform: uppercase;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  line-height: 0.97; letter-spacing: -0.015em;
-  text-shadow: 3px 4px 0 rgba(0,0,0,0.5);
-  max-width: 640px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; text-transform: uppercase;
+  font-size: clamp(3rem, 7vw, 5.35rem);
+  line-height: 0.98; letter-spacing: 0.015em;
+  text-shadow: 2px 3px 0 rgba(0,0,0,0.55);
+  max-width: 670px;
 }
 .hero h2 {
-  color: var(--yellow); font-size: 1.45rem; margin: 14px 0 12px;
-  font-weight: 700; font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.035em; text-transform: uppercase;
+  color: var(--yellow); font-size: 1.55rem; margin: 14px 0 12px;
+  font-weight: 600; font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.055em; text-transform: uppercase;
 }
 .hero p { max-width: 500px; font-size: 1.05rem; font-weight: 400; color: rgba(255,255,255,0.85); }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(135deg, #FFD95A, #FFC400);
   color: #080808; font-weight: 800; text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 1rem; letter-spacing: 0.045em;
   border: 0; border-radius: 100px;
   padding: 13px 32px; margin-top: 24px;
@@ -163,14 +163,14 @@ a    { text-decoration: none; color: inherit; }
   align-items: center; border-right: 1px solid var(--line);
 }
 .trust-strip span { font-size: 2rem; color: var(--yellow); grid-row: span 2; }
-.trust-strip strong { text-transform: uppercase; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; letter-spacing: 0.035em; }
+.trust-strip strong { text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; letter-spacing: 0.035em; }
 .trust-strip small { color: var(--muted); font-size: 0.82rem; }
 
 /* ── SECTIONS ── */
 .section { padding: 90px 0; background: var(--black2); }
 .section:nth-of-type(even) { background: var(--black3); }
 .eyebrow {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   color: var(--yellow); font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.14em;
   font-size: 0.82rem; margin-bottom: 10px;
@@ -181,15 +181,15 @@ a    { text-decoration: none; color: inherit; }
 .center.eyebrow { justify-content: center; }
 .center.eyebrow::before, .center.eyebrow::after { content: ''; width: 20px; height: 1px; background: var(--yellow); }
 .center-title {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center; font-weight: 900;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-align: center; font-weight: 700;
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   text-transform: uppercase; letter-spacing: -0.015em;
   line-height: 1.0; margin-bottom: 40px;
 }
 .section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900; text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; text-transform: uppercase;
   font-size: clamp(2rem, 4.5vw, 3.6rem);
   letter-spacing: -0.015em; line-height: 1.0;
   margin-bottom: 16px;
@@ -244,7 +244,7 @@ a    { text-decoration: none; color: inherit; }
 .service-grid article:hover::before { transform: scaleX(1); }
 .service-grid span { font-size: 2.2rem; }
 .service-grid h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800; text-transform: uppercase;
   font-size: 1.25rem; letter-spacing: 0.02em;
   margin: 12px 0 8px; color: var(--yellow);
@@ -300,19 +300,19 @@ a    { text-decoration: none; color: inherit; }
 .ba-handle::after {
   content: '↔';
   position: relative; z-index: 2;
-  color: #080808; font-weight: 900; font-size: 1rem;
+  color: #080808; font-weight: 800; font-size: 1rem;
 }
 .label {
   position: absolute; top: 12px; z-index: 5;
   padding: 4px 14px; border-radius: 100px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .label.before { left: 12px; background: rgba(0,0,0,0.75); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.2); }
 .label.after  { right: 12px; background: var(--yellow); color: #080808; }
 .ba-card h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 800; text-transform: uppercase; letter-spacing: 0.035em;
   color: var(--yellow); margin-top: 14px; font-size: 1.1rem;
 }
@@ -320,8 +320,8 @@ a    { text-decoration: none; color: inherit; }
 /* ── OUR WORK COMPLETED ── */
 .our-work-section { margin-top: 16px; }
 .our-work-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900; text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; text-transform: uppercase;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   letter-spacing: 0.02em; text-align: center;
   margin-bottom: 8px;
@@ -333,15 +333,12 @@ a    { text-decoration: none; color: inherit; }
 }
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(280px, 520px));
+  gap: 24px;
   justify-content: center;
   align-items: stretch;
-  max-width: 1180px;
+  max-width: 1080px;
   margin: 0 auto;
-}
-@media (min-width: 1100px) {
-  .photo-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .photo-card {
   position: relative; border-radius: var(--radius);
@@ -364,7 +361,7 @@ a    { text-decoration: none; color: inherit; }
 .photo-card-label {
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 14px 12px 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.78rem; font-weight: 700;
   letter-spacing: 0.045em; text-transform: uppercase;
   color: var(--yellow);
@@ -392,7 +389,7 @@ blockquote::before {
 cite {
   display: block; color: var(--yellow); font-weight: 700;
   margin-top: 14px; font-style: normal;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: 0.035em; text-transform: uppercase; font-size: 0.88rem;
 }
 
@@ -501,15 +498,15 @@ footer {
   mix-blend-mode: screen;
 }
 .thank-card h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(3rem, 8vw, 5.2rem);
   line-height: 0.95;
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.04em;
 }
 .thank-card h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   color: var(--yellow);
   font-size: clamp(1.1rem, 3vw, 1.45rem);
   text-transform: uppercase;
