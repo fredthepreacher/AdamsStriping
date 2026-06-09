@@ -538,3 +538,19 @@ footer {
   margin: 0 auto 10px;
   color: rgba(255,255,255,0.84);
 }
+
+
+/* Final gallery alignment */
+.photo-grid{
+ display:flex !important;
+ flex-wrap:nowrap !important;
+ justify-content:center !important;
+ gap:24px !important;
+ align-items:stretch;
+}
+.photo-card{
+ flex:0 1 380px;
+}
+@media (max-width: 1100px){
+ .photo-grid{flex-wrap:wrap !important;}
+}
