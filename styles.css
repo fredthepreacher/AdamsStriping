@@ -157,7 +157,7 @@ address { font-style: normal; }
 /* ── HERO ── */
 .hero {
   position: relative; min-height: 580px;
-  background: url('assets/hero-parking.jpg') center/cover no-repeat;
+  background: url('assets/hero-parking.png') center/cover no-repeat;
   display: flex; align-items: center;
   border-bottom: 3px solid var(--yellow);
 }
@@ -427,19 +427,15 @@ address { font-style: normal; }
   outline: 2px solid var(--yellow);
   outline-offset: 3px;
 }
-.ba-slider > img,
-.ba-slider > picture,
-.ba-slider > picture > img {
+.ba-slider > img {
   width: 100%; height: 100%; object-fit: cover; object-position: center;
   display: block; pointer-events: none;
 }
-.ba-slider > picture { position: absolute; inset: 0; }
 .ba-after {
   position: absolute; top: 0; left: 0; height: 100%; width: 50%; overflow: hidden;
   border-right: 3px solid var(--yellow);
   transition: none;
 }
-.ba-after picture { position: absolute; top: 0; left: 0; height: 100%; width: 100%; }
 .ba-after img {
   position: absolute; top: 0; left: 0;
   height: 100%; width: auto; min-width: 100%;

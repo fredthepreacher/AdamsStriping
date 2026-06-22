@@ -48,9 +48,7 @@
   document.querySelectorAll('.ba-slider').forEach(slider => {
     const after    = slider.querySelector('.ba-after');
     const handle   = slider.querySelector('.ba-handle');
-    if (!after) return;
     const afterImg = after.querySelector('img');
-    if (!afterImg || !handle) return;
     let active = false;
     let currentPct = 50;
 
