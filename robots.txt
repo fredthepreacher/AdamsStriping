@@ -1,4 +1,12 @@
-User-agent: *
-Allow: /
+[build]
+  publish = "."
 
-Sitemap: https://adamsstriping.com/sitemap.xml
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/thank-you/"
+  to = "/thank-you.html"
+  status = 200
