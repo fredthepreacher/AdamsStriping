@@ -1,12 +1,8 @@
 [build]
   publish = "."
 
-[[redirects]]
-  from = "/thank-you"
-  to = "/thank-you.html"
-  status = 200
-
-[[redirects]]
-  from = "/thank-you/"
-  to = "/thank-you.html"
-  status = 200
+# Force browsers to always revalidate HTML — never serve stale index.html
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache
