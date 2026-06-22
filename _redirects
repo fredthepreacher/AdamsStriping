@@ -1,2 +1,9 @@
-/thank-you /thank-you.html 200
-/thank-you/ /thank-you.html 200
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
