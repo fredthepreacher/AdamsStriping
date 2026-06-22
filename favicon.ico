@@ -1,18 +1,18 @@
-# AdamsStriping Clean Deploy Package
+# AdamsStriping.com — Final Fixed Deploy Package
 
-This package fixes the broken/incomplete Before & After project by removing the huge inline base64 images and replacing them with normal optimized image files.
+This package fixes the broken/incomplete image loading issue by using normal asset files instead of inline/base64 images and by avoiding `<picture>` markup inside the before/after sliders.
 
-## Deploy steps
+## Important Netlify deploy steps
 
-1. In Netlify, go to the AdamsStriping site.
-2. Go to **Deploys**.
-3. Drag and drop the ZIP file named `AdamsStriping_DEPLOY_CLEAN.zip` directly into Netlify, or drag the folder named `AdamsStriping_DEPLOY_CLEAN`.
-4. Do **not** drag a parent folder that contains this folder. The deploy root must contain `index.html`, `styles.css`, `script.js`, and the `assets` folder.
-5. After deploy, open the site in an incognito/private window or hard refresh with Ctrl + F5.
+1. Upload **AdamsStriping_DEPLOY_FINAL_FIXED.zip** directly to Netlify Deploys.
+2. Do **not** upload a parent folder that contains this folder.
+3. The deploy root must contain `index.html`, `styles.css`, `script.js`, and the `assets/` folder at the same top level.
+4. After deploy, open the site in an incognito window or press Ctrl + F5.
 
-## What changed
+## Fixed items
 
-- Added the newest Before image as `assets/commercial-ada-before.jpg` and `.webp`.
-- Added the newest After image as `assets/commercial-ada-after.jpg` and `.webp`.
-- Updated `index.html` so the Commercial ADA Layout before/after slider uses real file paths instead of base64 code.
-- Added cache headers to reduce browser/Netlify cache confusion after redeploy.
+- New Commercial ADA before/after images added as real files.
+- Removed heavy inline/base64 image code from HTML.
+- Replaced slow PNG display references with optimized JPG/WebP versions.
+- Fixed before/after slider markup so all images load consistently.
+- Confirmed referenced image files exist inside `assets/`.
