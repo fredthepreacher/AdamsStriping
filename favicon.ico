@@ -1,27 +1,18 @@
-# Adams Bros Striping - Fixed Deploy Package
+# AdamsStriping Clean Deploy Package
 
-## What was fixed
+This package fixes the broken/incomplete Before & After project by removing the huge inline base64 images and replacing them with normal optimized image files.
 
-- Removed two huge inline/base64 images from `index.html` that were making the page file extremely large and causing the before/after section to behave incorrectly.
-- Reconnected the newest before/after project to normal asset files:
-  - `assets/new-project-before.jpg`
-  - `assets/new-project-after.jpg`
-- Updated the Before & After grid so three projects sit evenly and symmetrically on desktop, then collapse cleanly on tablet/mobile.
-- Bumped the stylesheet cache version to `styles.css?v=18` so browsers are less likely to show old cached styling.
+## Deploy steps
 
-## Important Netlify deployment note
+1. In Netlify, go to the AdamsStriping site.
+2. Go to **Deploys**.
+3. Drag and drop the ZIP file named `AdamsStriping_DEPLOY_CLEAN.zip` directly into Netlify, or drag the folder named `AdamsStriping_DEPLOY_CLEAN`.
+4. Do **not** drag a parent folder that contains this folder. The deploy root must contain `index.html`, `styles.css`, `script.js`, and the `assets` folder.
+5. After deploy, open the site in an incognito/private window or hard refresh with Ctrl + F5.
 
-When deploying manually to Netlify, upload the CONTENTS of this folder, not a folder nested inside another folder.
+## What changed
 
-The deployed root should contain:
-
-- `index.html`
-- `styles.css`
-- `script.js`
-- `assets/`
-- `robots.txt`
-- `sitemap.xml`
-- `netlify.toml`
-- `_redirects`
-
-If Netlify receives a zip with everything inside an extra parent folder, asset paths may not load correctly.
+- Added the newest Before image as `assets/commercial-ada-before.jpg` and `.webp`.
+- Added the newest After image as `assets/commercial-ada-after.jpg` and `.webp`.
+- Updated `index.html` so the Commercial ADA Layout before/after slider uses real file paths instead of base64 code.
+- Added cache headers to reduce browser/Netlify cache confusion after redeploy.

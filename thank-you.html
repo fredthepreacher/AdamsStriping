@@ -400,15 +400,19 @@ address { font-style: normal; }
 /* ── GALLERY ── */
 .before-after-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 28px;
   margin-bottom: 48px;
-  align-items: start;
 }
-
-.ba-card {
+/* 3rd card (or any last odd card) spans full width centered */
+.ba-card:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: 580px;
+  margin: 0 auto;
   width: 100%;
 }
+
+.ba-card { }
 .ba-slider {
   position: relative; overflow: hidden;
   border-radius: var(--radius);
@@ -799,13 +803,13 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
   .service-grid { grid-template-columns: repeat(2, 1fr); }
-  .before-after-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 900px) {
   .two-col { grid-template-columns: 1fr; gap: 36px; }
   .review-grid { grid-template-columns: 1fr 1fr; }
   .before-after-grid { grid-template-columns: 1fr; }
+  .ba-card:nth-child(3) { grid-column: auto; max-width: 100%; }
   .area-grid { grid-template-columns: repeat(2, 1fr); }
   .trust-strip { grid-template-columns: repeat(2, 1fr); }
 }
