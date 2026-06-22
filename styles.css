@@ -159,13 +159,9 @@ address { font-style: normal; }
 /* ── HERO ── */
 .hero {
   position: relative; min-height: 580px;
-  background: url('assets/hero-parking.webp') center/cover no-repeat;
+  background: url('assets/hero-parking.png') center/cover no-repeat;
   display: flex; align-items: center;
   border-bottom: 3px solid var(--yellow);
-}
-/* PNG fallback for browsers without WebP support */
-@supports not (background-image: url('data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=')) {
-  .hero { background-image: url('assets/hero-parking.png'); }
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -584,4 +580,4 @@ address { font-style: normal; }
   align-items: center;
   justify-content: center;
   gap: 14px;
-  ma
+  ma                                                                                                                                                                                                                                             
