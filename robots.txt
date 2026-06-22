@@ -1,4 +1,8 @@
-User-agent: *
-Allow: /
+[build]
+  publish = "."
 
-Sitemap: https://adamsstriping.com/sitemap.xml
+# Force browsers to always revalidate HTML — never serve stale index.html
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache
