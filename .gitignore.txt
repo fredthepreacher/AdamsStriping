@@ -1,0 +1,12 @@
+.env
+.env.local
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.log
+adamsstriping-v14.zip
