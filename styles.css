@@ -87,13 +87,23 @@ address { font-style: normal; }
   backdrop-filter: blur(12px);
 }
 .topbar {
-  height: 68px; display: flex; align-items: center;
+  height: 78px; display: flex; align-items: center;
   justify-content: flex-end;
   width: min(1280px, 92%); margin: auto; position: relative;
 }
-.brand { position: absolute; left: 0; top: 6px; z-index: 3; }
+.brand {
+  position: absolute; left: 0; top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  flex-shrink: 0;
+  min-width: 0;
+}
 .brand img {
-  width: 220px;
+  display: block;
+  width: auto;
+  height: clamp(56px, 6vw, 72px);
+  max-width: 130px;
+  object-fit: contain;
   filter: drop-shadow(0 4px 18px rgba(0,0,0,0.85));
   mix-blend-mode: screen;
 }
@@ -108,7 +118,7 @@ address { font-style: normal; }
   height: 52px; display: flex; align-items: center;
   justify-content: center; gap: 36px;
   background: linear-gradient(90deg, #070707, #141414, #070707);
-  padding-left: 160px;
+  padding-left: 175px;
 }
 .nav a {
   font-family: 'Saira Condensed', sans-serif;
@@ -287,7 +297,12 @@ address { font-style: normal; }
   box-shadow: none;
 }
 .info-card img {
-  max-width: 280px; margin: 0 auto 24px;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 280px;
+  object-fit: contain;
+  margin: 0 auto 24px;
   filter: drop-shadow(0 0 24px rgba(255,196,0,0.18));
   mix-blend-mode: screen;
 }
@@ -738,6 +753,11 @@ footer {
   padding: 56px 0 36px;
 }
 .footer-brand img {
+  display: block;
+  width: auto;
+  height: 88px;
+  max-width: 170px;
+  object-fit: contain;
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 18px rgba(255,196,0,0.15));
   margin-bottom: 14px;
@@ -821,8 +841,8 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .review-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
-  .topbar { height: 60px; }
-  .brand img { width: 170px; }
+  .topbar { height: 64px; }
+  .brand img { width: auto; height: 48px; max-width: 120px; }
   .top-contact { display: none; }
   .nav { gap: 0; flex-direction: column; height: auto; padding: 20px; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.97); justify-content: center; display: none; z-index: 100; }
   .nav.open { display: flex; }
