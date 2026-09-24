@@ -1,4 +1,4 @@
-/* Adams Bros Striping — script.js (v14) */
+/* Adams Bros Striping — script.js (v16) */
 (function () {
 
   /* ── Mobile nav ── */
@@ -44,59 +44,97 @@
     });
   });
 
-  /* ── Before/After sliders ── */
+  /* ── Before/After sliders (v16) ──
+     Markup contract (unchanged): .ba-slider > img (AFTER, full frame)
+     + .ba-after > img (BEFORE overlay, revealed on the left under the
+     "Before" label) + .ba-handle. The overlay is clipped with clip-path so
+     neither image ever resizes, stretches, or zooms while dragging.
+     Pointer events cover mouse, touch, and pen; touch-action: pan-y (CSS)
+     keeps vertical page scroll working while horizontal drags move the divider. */
   document.querySelectorAll('.ba-slider').forEach(slider => {
-    const after    = slider.querySelector('.ba-after');
-    const handle   = slider.querySelector('.ba-handle');
-    const afterImg = after.querySelector('img');
-    let active = false;
+    const after  = slider.querySelector('.ba-after');
+    const handle = slider.querySelector('.ba-handle');
+    if (!after || !handle) return;
+    let dragging = false;
+    let pointerId = null;
     let currentPct = 50;
+    let raf = 0;
 
-    function setPos(clientX) {
+    function render() {
+      raf = 0;
+      after.style.clipPath       = 'inset(0 ' + (100 - currentPct) + '% 0 0)';
+      after.style.webkitClipPath = after.style.clipPath;
+      handle.style.left          = currentPct + '%';
+      const v = Math.round(currentPct);
+      slider.setAttribute('aria-valuenow', String(v));
+      slider.setAttribute('aria-valuetext', v + '% before, ' + (100 - v) + '% after');
+    }
+    function setPct(pct) {
+      currentPct = Math.max(0, Math.min(100, pct));
+      if (!raf) raf = requestAnimationFrame(render);
+    }
+    function pctFromX(clientX) {
       const rect = slider.getBoundingClientRect();
-      let pct = ((clientX - rect.left) / rect.width) * 100;
-      pct = Math.max(3, Math.min(97, pct));
-      currentPct = pct;
-      after.style.width    = pct + '%';
-      handle.style.left    = pct + '%';
-      afterImg.style.width = rect.width + 'px';
+      return ((clientX - rect.left) / rect.width) * 100;
     }
 
-    /* Initialise at 50% */
-    after.style.width  = '50%';
-    handle.style.left  = '50%';
-    setTimeout(() => {
-      afterImg.style.width = slider.getBoundingClientRect().width + 'px';
-    }, 100);
+    setPct(50);
 
-    window.addEventListener('resize', () => {
-      afterImg.style.width = slider.getBoundingClientRect().width + 'px';
-    }, { passive: true });
+    slider.addEventListener('pointerdown', e => {
+      if (e.button !== undefined && e.button !== 0) return;
+      dragging = true;
+      pointerId = e.pointerId;
+      try { slider.setPointerCapture(pointerId); } catch (_) {}
+      slider.classList.add('is-dragging');
+      setPct(pctFromX(e.clientX));
+      if (e.pointerType === 'mouse') e.preventDefault();
+    });
+    slider.addEventListener('pointermove', e => {
+      if (dragging && e.pointerId === pointerId) setPct(pctFromX(e.clientX));
+    });
+    function endDrag(e) {
+      if (!dragging || (e && e.pointerId !== pointerId)) return;
+      dragging = false;
+      slider.classList.remove('is-dragging');
+      try { slider.releasePointerCapture(pointerId); } catch (_) {}
+      pointerId = null;
+    }
+    slider.addEventListener('pointerup', endDrag);
+    slider.addEventListener('pointercancel', endDrag);
+    slider.addEventListener('lostpointercapture', endDrag);
+    slider.addEventListener('dragstart', e => e.preventDefault());
 
-    /* Mouse */
-    slider.addEventListener('mousedown', e => { active = true; setPos(e.clientX); e.preventDefault(); });
-    window.addEventListener('mousemove', e => { if (active) setPos(e.clientX); });
-    window.addEventListener('mouseup',   ()  => { active = false; });
-
-    /* Touch */
-    slider.addEventListener('touchstart', e => { active = true; setPos(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('touchmove',  e => { if (active) setPos(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('touchend',   ()  => { active = false; });
-
-    /* Keyboard — arrow keys when slider is focused */
+    /* Keyboard: arrows (Shift = bigger step), Home/End, PageUp/PageDown */
     slider.addEventListener('keydown', e => {
       const step = e.shiftKey ? 10 : 2;
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const rect = slider.getBoundingClientRect();
-        setPos(rect.left + (rect.width * (currentPct - step) / 100));
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault();
-        const rect = slider.getBoundingClientRect();
-        setPos(rect.left + (rect.width * (currentPct + step) / 100));
-      }
+      let next = null;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') next = currentPct - step;
+      else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') next = currentPct + step;
+      else if (e.key === 'PageDown') next = currentPct - 10;
+      else if (e.key === 'PageUp') next = currentPct + 10;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = 100;
+      if (next !== null) { e.preventDefault(); setPct(next); }
     });
   });
+
+  /* ── Quote form: preselect a service from CTA links ──
+     <a href="#quote" data-service="Residential Driveway Sealcoating">
+     or from another page: /?service=residential-driveway-sealcoating#quote */
+  const serviceSelect = document.getElementById('service');
+  if (serviceSelect) {
+    const slug = t => t.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const pick = wanted => {
+      if (!wanted) return;
+      const w = slug(wanted);
+      const opt = Array.from(serviceSelect.options).find(o => o.value && slug(o.value) === w);
+      if (opt) serviceSelect.value = opt.value;
+    };
+    document.querySelectorAll('a[data-service]').forEach(a => {
+      a.addEventListener('click', () => pick(a.getAttribute('data-service')));
+    });
+    try { pick(new URLSearchParams(window.location.search).get('service')); } catch (_) {}
+  }
 
   /* ── Sticky CTA — show after hero scrolls out, hide when quote is visible ── */
   const stickyCta    = document.getElementById('stickyCta');

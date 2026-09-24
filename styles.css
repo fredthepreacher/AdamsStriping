@@ -1,5 +1,5 @@
 /* ============================================================
-   ADAMS BROS STRIPING — styles.css  (v15)
+   ADAMS BROS STRIPING — styles.css  (v16)
    Fonts: Saira Condensed (display) + Inter (body)
    ============================================================ */
 
@@ -1017,7 +1017,7 @@ footer {
 
 /* Service page hero variant (same .hero component, different background/size) */
 .hero--crack { background-image: linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35)), url('../../assets/finished-work-03.jpg'); background-size: cover; background-position: center; min-height: 460px; }
-.hero--seal  { background-image: linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35)), url('../../assets/finished-work-01.jpg'); background-size: cover; background-position: center; min-height: 460px; }
+.hero--seal  { background-image: linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35)), url('../../assets/commercial-parking-lot-sealcoating-finished-2.jpg'); background-size: cover; background-position: center; min-height: 460px; }
 .hero--page .hero-overlay { display: none; }
 .hero--page h1 { font-size: clamp(2.3rem, 6vw, 3.9rem); max-width: 780px; }
 
@@ -1094,3 +1094,179 @@ footer {
   .benefit-grid { grid-template-columns: 1fr; }
   .ph-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   v16 ADDITIONS — Sealcoating hero, Residential Driveway
+   Sealcoating, new project photos (2026-09-24)
+   ============================================================ */
+
+/* Hero H1 — "& Sealcoating" as an intentional gold third line */
+.hero h1 { max-width: 760px; }
+.hero h1 .h1-accent { display: block; color: var(--yellow); }
+@media (max-width: 600px) {
+  .hero h1 { font-size: clamp(2.35rem, 11vw, 3rem); }
+}
+
+/* Before/after slider — clip-path reveal (images never resize while dragging) */
+.ba-slider { touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+.ba-slider.is-dragging { cursor: grabbing; }
+.ba-after {
+  width: 100% !important;
+  border-right: 0 !important;
+  clip-path: inset(0 50% 0 0);
+  -webkit-clip-path: inset(0 50% 0 0);
+  z-index: 1;
+}
+.ba-slider .label { pointer-events: none; }
+.ba-slider:focus { outline: none; }
+.ba-slider:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+/* Featured Sweetwater slider */
+.ba-featured { max-width: 900px; margin: 0 auto 56px; }
+.ba-featured .ba-slider { aspect-ratio: 4 / 3 !important; }
+.ba-featured-cap { text-align: center; margin-top: 16px; }
+.ba-featured-cap h3 {
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.035em;
+  color: var(--yellow); font-size: 1.35rem; margin-bottom: 4px;
+}
+.ba-featured-cap p { color: var(--muted); font-size: 0.9rem; margin: 0 auto; max-width: 620px; }
+.ba-hint {
+  display: block; margin-top: 8px;
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Section sub-headings inside the gallery */
+.gallery-block { margin-bottom: 64px; }
+.gallery-block:last-child { margin-bottom: 0; }
+
+/* Commercial sealcoating progression — Before → In Progress → Finished */
+.project-steps {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px; counter-reset: step;
+}
+.project-step {
+  background: var(--black4);
+  border: 1px solid rgba(255,196,0,0.12);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.project-step img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.project-step figcaption { padding: 14px 16px 16px; }
+.project-step .step-tag {
+  display: inline-block; margin-bottom: 6px;
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800;
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 100px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.project-step .step-tag--done { background: var(--yellow); color: #080808; border-color: var(--yellow); }
+.project-step p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.55; }
+
+/* Residential driveway proof block */
+.res-proof {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 36px; align-items: center;
+  background: linear-gradient(135deg, #14110a, #1a1a1a);
+  border: 1px solid rgba(255,196,0,0.2);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.res-proof figure { margin: 0; }
+.res-proof img {
+  width: 100%; height: auto; display: block;
+  border-radius: calc(var(--radius) - 4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  background: #fff;
+}
+.res-proof figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 10px; text-align: center; }
+.res-proof h3 {
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: 0.02em; line-height: 1.05; margin-bottom: 10px;
+}
+.res-proof h3 span { color: var(--yellow); }
+.res-proof p { color: var(--muted); font-size: 0.95rem; }
+.res-proof ul { list-style: none; margin: 14px 0 22px; display: grid; gap: 8px; }
+.res-proof li { display: flex; gap: 10px; font-size: 0.92rem; color: var(--text); }
+.res-proof li::before { content: '\2713'; color: var(--yellow); font-weight: 800; }
+.res-proof .res-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* Residential service card spans two columns so the grid stays 4 + 4 */
+.service-grid article.svc-wide { grid-column: span 2; }
+.svc-tag {
+  display: inline-block; margin-bottom: 10px;
+  font-family: 'Saira Condensed', sans-serif; font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #080808; background: var(--yellow);
+  padding: 2px 10px; border-radius: 100px;
+}
+
+/* Commercial vs Residential audience split */
+.audience-split {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px; margin-top: 34px;
+}
+.audience-card {
+  background: var(--black4);
+  border: 1px solid rgba(255,196,0,0.14);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  display: flex; flex-direction: column;
+}
+.audience-card h3 {
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: 1.35rem; letter-spacing: 0.02em; color: var(--yellow); margin-bottom: 4px;
+}
+.audience-card > p { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; }
+.audience-card ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-bottom: 20px; }
+.audience-card li { font-size: 0.86rem; color: var(--text); display: flex; gap: 8px; }
+.audience-card li::before { content: '\25B8'; color: var(--yellow); }
+.audience-card .btn { align-self: flex-start; margin-top: auto; font-size: 0.92rem; padding: 12px 24px; }
+
+/* Visible keyboard focus on links/buttons added in v16 */
+.svc-link:focus-visible, .audience-card .btn:focus-visible, .res-proof .btn:focus-visible,
+.related-links a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .service-grid article.svc-wide { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .res-proof { grid-template-columns: 1fr; gap: 22px; padding: 20px; }
+  .audience-split { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .project-steps { grid-template-columns: 1fr; gap: 18px; }
+  .audience-card ul { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .service-grid article.svc-wide { grid-column: auto; }
+  .ba-featured { margin-bottom: 44px; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-content { animation: none !important; }
+  .photo-card img, .service-grid article, .benefit-grid li, .btn { transition: none !important; }
+  .photo-card:hover img { transform: none; }
+}
+.photo-card picture, .project-step picture, .res-proof picture { display: block; }
+.hero p a.hero-inline-link { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.hero p a.hero-inline-link:hover { color: var(--yellow2); }
+.related-links--center { justify-content: center; margin-top: 28px; }
+.hero--drive { background-image: linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.74) 45%, rgba(0,0,0,0.4)), url('../../assets/sealcoated-asphalt-finished-surface.jpg'); background-size: cover; background-position: center; min-height: 460px; }
+/* Tablet nav fit (fixes pre-existing ~30px horizontal overflow at 768px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .nav { gap: 18px; padding-left: 150px; }
+  .nav a { font-size: 0.86rem; letter-spacing: 0.03em; }
+}
+@media (min-width: 601px) and (max-width: 820px) {
+  .nav { padding-left: 16px; }
+}
+/* Prevent off-screen reveal transforms from widening the mobile layout viewport (pre-existing ~20px sideways scroll on phones) */
+html { overflow-x: clip; }
+@supports not (overflow: clip) { html, body { overflow-x: hidden; } }
