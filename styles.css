@@ -167,7 +167,8 @@ address { font-style: normal; }
 /* ── HERO ── */
 .hero {
   position: relative; min-height: 580px;
-  background: url('assets/hero-parking.png') center/cover no-repeat;
+  background: url('assets/hero-parking.jpg') center/cover no-repeat;
+  background-image: image-set(url('assets/hero-parking-1448.webp') type('image/webp'), url('assets/hero-parking.jpg') type('image/jpeg'));
   display: flex; align-items: center;
   border-bottom: 3px solid var(--yellow);
 }
@@ -1270,3 +1271,118 @@ footer {
 /* Prevent off-screen reveal transforms from widening the mobile layout viewport (pre-existing ~20px sideways scroll on phones) */
 html { overflow-x: clip; }
 @supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+
+/* v17: lighter hero on phones */
+@media (max-width: 700px) {
+  .hero:not(.hero--page) {
+    background-image: url('assets/hero-parking-800.jpg');
+    background-image: image-set(url('assets/hero-parking-800.webp') type('image/webp'), url('assets/hero-parking-800.jpg') type('image/jpeg'));
+  }
+}
+
+/* ============================================================
+   v17 ADDITIONS — growth pass (2026-09-25)
+   ============================================================ */
+
+/* Skip link */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 1000;
+  background: var(--yellow); color: #080808; font-weight: 700;
+  padding: 10px 16px; border-radius: 8px; transition: top 0.2s;
+}
+.skip-link:focus { top: 12px; outline: 3px solid #fff; outline-offset: 2px; }
+#main-content:focus { outline: none; }
+
+/* Sticky CTA: call link only on phones, where it becomes a two-button bar */
+.sticky-cta-call { display: none; }
+@media (max-width: 600px) {
+  .sticky-cta {
+    left: 0; right: 0; bottom: 0;
+    display: flex; gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(5,5,5,0.96);
+    border-top: 1px solid rgba(255,196,0,0.35);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.55);
+  }
+  .sticky-cta-call, .sticky-cta-btn {
+    flex: 1 1 0; justify-content: center; min-height: 48px;
+    display: inline-flex; align-items: center; border-radius: 100px;
+    font-family: 'Saira Condensed', sans-serif; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.98rem;
+    padding: 12px 14px;
+  }
+  .sticky-cta-call { color: #fff; border: 2px solid rgba(255,255,255,0.4); flex: 0 0 38%; }
+  .sticky-cta-btn { box-shadow: none; }
+  .sticky-cta.visible ~ footer, body:has(.sticky-cta.visible) footer { padding-bottom: 84px; }
+}
+
+/* How It Works — numbered process */
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px;
+  counter-reset: pstep; list-style: none; margin-top: 8px;
+}
+.process-steps li {
+  position: relative; counter-increment: pstep;
+  background: var(--black4); border: 1px solid rgba(255,196,0,0.12);
+  border-radius: var(--radius); padding: 58px 20px 22px;
+}
+.process-steps li::before {
+  content: counter(pstep, decimal-leading-zero);
+  position: absolute; top: 16px; left: 20px;
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800; font-size: 1.9rem;
+  line-height: 1; color: var(--yellow);
+}
+.process-steps li::after {
+  content: ''; position: absolute; top: 30px; left: 70px; right: 20px; height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255,196,0,0.5) 0 14px, transparent 14px 24px);
+}
+.process-steps h3 {
+  font-family: 'Saira Condensed', sans-serif; font-weight: 800; text-transform: uppercase;
+  font-size: 1.15rem; letter-spacing: 0.02em; margin-bottom: 6px;
+}
+.process-steps p { font-size: 0.87rem; color: var(--muted); margin: 0; line-height: 1.6; }
+.process-cta { text-align: center; margin-top: 30px; }
+@media (max-width: 1000px) { .process-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px)  { .process-steps { grid-template-columns: 1fr; } }
+
+/* Service-page testimonial */
+.svc-quote {
+  max-width: 760px; margin: 0 auto;
+  background: var(--black4); border-left: 4px solid var(--yellow);
+  border-radius: var(--radius); padding: 26px 28px;
+}
+.svc-quote p { font-size: 1.05rem; color: var(--text); font-style: italic; margin-bottom: 10px; }
+.svc-quote cite { font-style: normal; color: var(--yellow); font-weight: 600; font-size: 0.9rem; }
+.svc-quote .stars { color: var(--yellow); letter-spacing: 2px; margin-bottom: 8px; }
+
+/* Direct-answer summary box on service pages (AEO) */
+.answer-box {
+  background: rgba(255,196,0,0.06); border: 1px solid rgba(255,196,0,0.28);
+  border-radius: var(--radius); padding: 18px 20px; margin: 4px 0 22px;
+}
+.answer-box p { color: var(--text) !important; margin: 0; }
+.answer-box strong { color: var(--yellow); }
+
+/* Simple data table (ADA space counts) */
+.data-table { width: 100%; border-collapse: collapse; margin: 16px 0 8px; font-size: 0.92rem; }
+.data-table th, .data-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.1); text-align: left; }
+.data-table th { color: var(--yellow); font-family: 'Saira Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+.table-wrap { overflow-x: auto; }
+
+/* Thank-you / 404 helpers */
+.thank-card ul { list-style: none; text-align: left; margin: 18px auto 22px; max-width: 420px; display: grid; gap: 8px; }
+.thank-card li { display: flex; gap: 10px; color: var(--muted); font-size: 0.95rem; }
+.thank-card li::before { content: '\2713'; color: var(--yellow); font-weight: 800; }
+.thank-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.thank-body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 16px; background: radial-gradient(ellipse at top, #1a1508, var(--black) 60%); }
+.thank-card { width: min(560px, 100%); text-align: center; background: var(--black4); border: 1px solid rgba(255,196,0,0.25); border-radius: var(--radius); padding: 36px 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+.thank-card img { width: 180px; height: auto; margin: 0 auto 14px; }
+.thank-card h1 { font-family: 'Saira Condensed', sans-serif; text-transform: uppercase; font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1; }
+.thank-card h2 { color: var(--yellow); font-family: 'Saira Condensed', sans-serif; text-transform: uppercase; font-size: 1.15rem; letter-spacing: 0.05em; margin: 10px 0 12px; }
+.thank-card > p { color: var(--muted); }
+.hero--stripe { background-image: linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35)), url('../../assets/madisonville-parking-lot-striping-before.jpg'); background-size: cover; background-position: center; min-height: 460px; }
+@media (max-width: 400px) {
+  .info-card { padding: 20px 0; }
+  .info-card img { max-width: 100%; }
+}
+.thank-card a:not(.btn) { color: var(--yellow); text-decoration: underline; text-underline-offset: 3px; }
